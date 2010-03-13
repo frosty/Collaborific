@@ -55,3 +55,108 @@ Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 16:45:17) [
 Rendering template within layouts/application
 Rendering collaborific/index
 Completed in 4ms (View: 3, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:04:47) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 40ms (View: 37, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:05:05) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:07:29) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:08:18) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-03-13 17:08:18) [GET]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2010-03-13 17:08:18) [GET]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:10:30) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-03-13 17:10:30) [GET]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2010-03-13 17:10:30) [GET]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:12:50) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-03-13 17:12:50) [GET]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2010-03-13 17:12:50) [GET]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:15:17) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-03-13 17:15:17) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 26ms (View: 20, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:17:12) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-03-13 17:17:12) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 25ms (View: 19, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:17:25) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-03-13 17:17:25) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 28ms (View: 21, DB: 0) | 200 OK [http://www.example.com/signup]

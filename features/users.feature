@@ -6,3 +6,8 @@ Feature: Authentication
   Scenario: Signup
     Given I am on the home page
     Then I should see "Sign Up"
+
+  Scenario: Signup
+    Given I am on the home page
+    When I follow "Sign Up"
+    Then I should be on the signup page
