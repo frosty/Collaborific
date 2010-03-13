@@ -1,0 +1,57 @@
+# Logfile created on Sat Mar 13 16:24:27 +0000 2010REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-13 16:24:30) [GET]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-13 16:26:55) [GET]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 16:28:43) [GET]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-13 16:28:43) [GET]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 16:30:35) [GET]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-13 16:30:35) [GET]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 16:31:05) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 16:42:16) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 16:42:49) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 16:44:29) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 16:45:17) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://www.example.com/]
