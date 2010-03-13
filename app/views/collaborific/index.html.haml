@@ -1,4 +1,4 @@
-%p Hello!
+%p Welcome to Collaborific!
 
-%p= link_to 'Sign up', signup_path
-%p= link_to 'Log in', login_path
+- if logged_in?
+  %p You are logged in.

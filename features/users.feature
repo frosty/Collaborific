@@ -31,7 +31,6 @@ Feature: Authentication
     When I press "Log in"
     Then I should see "Logged in successfully"
     
-  @wip
   Scenario: Login
     Given I am on the home page
     Then I should see "Log in"
@@ -41,3 +40,8 @@ Feature: Authentication
     And I am on the home page
     When I follow "Log in"
     Then I should be on the login page
+  
+  Scenario: Login
+    Given a logged in user
+    And I am on the home page
+    Then I should see "You are logged in."
