@@ -160,3 +160,307 @@ Processing UsersController#new (for 127.0.0.1 at 2010-03-13 17:17:25) [GET]
 Rendering template within layouts/application
 Rendering users/new
 Completed in 28ms (View: 21, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:21:22) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:21:22) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 1ms (View: 1, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-03-13 17:21:22) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 14ms (View: 11, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-03-13 17:21:22) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 2ms (View: 2, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:23:45) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:23:45) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 1ms (View: 1, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-03-13 17:23:45) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 15ms (View: 12, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-03-13 17:23:45) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:25:05) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:25:05) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 1ms (View: 1, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-03-13 17:25:05) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 14ms (View: 11, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-03-13 17:25:05) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 2ms (View: 2, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:28:51) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:28:51) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 1ms (View: 1, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-03-13 17:28:51) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 14ms (View: 11, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-03-13 17:28:51) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:29:44) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:29:44) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 1ms (View: 1, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-03-13 17:29:44) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 15ms (View: 12, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-03-13 17:29:44) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "user"=>{"password_confirmation"=>"wibble", "password"=>"wibble", "login"=>"Testy McTestFace", "email"=>"testy@testface.com"}} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-03-13 17:29:44) [POST]
+  Parameters: {"commit"=>"Sign up", "user"=>{"password_confirmation"=>"wibble", "login"=>"Testy McTestFace", "password"=>"wibble", "email"=>"testy@testface.com"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'testy mctestface') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'testy@testface.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 13ms (View: 6, DB: 0) | 200 OK [http://www.example.com/users]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:30:08) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:30:08) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 1ms (View: 1, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-03-13 17:30:08) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 14ms (View: 11, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-03-13 17:30:08) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "user"=>{"password_confirmation"=>"wibble", "password"=>"wibble", "login"=>"McTestFace", "email"=>"testy@testface.com"}} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-03-13 17:30:08) [POST]
+  Parameters: {"commit"=>"Sign up", "user"=>{"password_confirmation"=>"wibble", "login"=>"McTestFace", "password"=>"wibble", "email"=>"testy@testface.com"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'mctestface') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'testy@testface.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.4ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('', '054bdb4b05aba694b49e090f0a81a6af0a6b5e29', '2010-03-13 17:30:08', 'bd64e3ef7ff110693e19eb7b641a3dc3a3428fbb', NULL, '2010-03-13 17:30:08', NULL, 'mctestface', 'testy@testface.com')[0m
+Redirected to http://www.example.com/
+Completed in 8ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/ with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:30:08) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Completed in 1ms (View: 1, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:37:28) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-13 17:37:28) [GET]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:37:28) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-13 17:37:28) [GET]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-03-13 17:37:28) [GET]
+Rendering template within layouts/application
+Rendering users/new
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2010-03-13 17:37:28) [GET]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:37:53) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Rendered layouts/_flashes (5.2ms)
+Completed in 10ms (View: 8, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:37:53) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Rendered layouts/_flashes (0.2ms)
+Completed in 1ms (View: 1, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-03-13 17:37:53) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Rendered layouts/_flashes (0.4ms)
+Completed in 15ms (View: 12, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-03-13 17:37:53) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Rendered layouts/_flashes (0.2ms)
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "user"=>{"password_confirmation"=>"wibble", "password"=>"wibble", "login"=>"McTestFace", "email"=>"testy@testface.com"}} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-03-13 17:37:53) [POST]
+  Parameters: {"commit"=>"Sign up", "user"=>{"password_confirmation"=>"wibble", "login"=>"McTestFace", "password"=>"wibble", "email"=>"testy@testface.com"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'mctestface') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'testy@testface.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.4ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('', '7e548b05bb753ef8663e6c6f67ce80be84d40264', '2010-03-13 17:37:53', 'cd17a8c6391d29fd65ad7ba3f0f8eb846b904269', NULL, '2010-03-13 17:37:53', NULL, 'mctestface', 'testy@testface.com')[0m
+Redirected to http://www.example.com/
+Completed in 5ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/ with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:37:53) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Rendered layouts/_flashes (0.5ms)
+Completed in 1ms (View: 1, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:38:31) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Rendered layouts/_flashes (5.5ms)
+Completed in 10ms (View: 9, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing CollaborificController#index (for 127.0.0.1 at 2010-03-13 17:38:31) [GET]
+Rendering template within layouts/application
+Rendering collaborific/index
+Rendered layouts/_flashes (0.2ms)
+Completed in 1ms (View: 1, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-03-13 17:38:31) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Rendered layouts/_flashes (0.4ms)
+Completed in 15ms (View: 12, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-03-13 17:38:31) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Rendered layouts/_flashes (0.2ms)
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/signup]

@@ -11,3 +11,13 @@ Feature: Authentication
     Given I am on the home page
     When I follow "Sign Up"
     Then I should be on the signup page
+
+  Scenario: Signup
+    Given I am on the signup page
+    When I fill in the following:
+       | Login             | McTestFace   |
+       | Email             | testy@testface.com |
+       | Password          | wibble |
+       | Confirm Password  | wibble |
+    And I press "Sign up"
+    Then show me the page
