@@ -20,4 +20,13 @@ Feature: Authentication
        | Password          | wibble |
        | Confirm Password  | wibble |
     And I press "Sign up"
-    Then show me the page
+    Then I should see "Thanks for signing up"
+    
+  Scenario: Login
+    Given a valid user
+    When I go to the login page
+    When I fill in the following:
+      | Login | McTestFace |
+      | Password | wibble |
+    When I press "Log in"
+    Then I should see "Logged in successfully"
