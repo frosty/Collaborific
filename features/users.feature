@@ -5,11 +5,11 @@ Feature: Authentication
   
   Scenario: Signup
     Given I am on the home page
-    Then I should see "Sign Up"
+    Then I should see "Sign up"
 
   Scenario: Signup
     Given I am on the home page
-    When I follow "Sign Up"
+    When I follow "Sign up"
     Then I should be on the signup page
 
   Scenario: Signup
@@ -21,7 +21,7 @@ Feature: Authentication
        | Confirm Password  | wibble |
     And I press "Sign up"
     Then I should see "Thanks for signing up"
-    
+  
   Scenario: Login
     Given a valid user
     When I go to the login page
@@ -30,3 +30,14 @@ Feature: Authentication
       | Password | wibble |
     When I press "Log in"
     Then I should see "Logged in successfully"
+    
+  @wip
+  Scenario: Login
+    Given I am on the home page
+    Then I should see "Log in"
+  
+  Scenario: Login
+    Given a valid user
+    And I am on the home page
+    When I follow "Log in"
+    Then I should be on the login page

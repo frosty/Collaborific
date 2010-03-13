@@ -6,3 +6,11 @@ Given /^a valid user$/ do
                   :password_confirmation => "wibble"
   })
 end
+
+Given /^a logged in user$/ do
+  Given "a valid user"
+  When "I am on the login page"
+  And %Q{I fill in "Login" with "McTestFace"}
+  And %Q{I fill in "Password" with "wibble"}
+  And %Q{I press "Log in"}
+end
