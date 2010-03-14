@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
 
   has_many :fics
   has_many :stories, :through => :fics
+  has_many :collaborations, :through => :collaborators, :source => :stories
   
 
   # HACK HACK HACK -- how to do attr_accessible from here?
