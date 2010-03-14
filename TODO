@@ -1,5 +1,0 @@
-Users become collaborators once they start working on a story
-
-If a user is invited to become a collaborator and say yes, then a new collaborator is made with their id and the story id
-
-When a user creates a story, they are automatically made into a collaborator, so they're first in the list.
