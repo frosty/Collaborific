@@ -17,6 +17,9 @@ module NavigationHelpers
     when /the login page/
       login_path
     
+    when /the new story page/
+      new_story_path
+    
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
