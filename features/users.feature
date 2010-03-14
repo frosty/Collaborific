@@ -6,12 +6,12 @@ Feature: Authentication
   Scenario: Signup
     Given I am on the home page
     Then I should see "Sign up"
-
+  
   Scenario: Signup
     Given I am on the home page
     When I follow "Sign up"
     Then I should be on the signup page
-
+  
   Scenario: Signup
     Given I am on the signup page
     When I fill in the following:
@@ -30,7 +30,7 @@ Feature: Authentication
       | Password | wibble |
     When I press "Log in"
     Then I should see "Logged in successfully"
-    
+  
   Scenario: Login
     Given I am on the home page
     Then I should see "Log in"
@@ -45,3 +45,11 @@ Feature: Authentication
     Given a logged in user
     And I am on the home page
     Then I should see "You are logged in."
+  
+  Scenario: Login
+    Given a logged in user
+    And I am on the home page
+    Then I should not see "Sign up"
+    And I should not see "Log in"
+    And I should see "Log out"
+  
