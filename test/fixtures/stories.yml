@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  owner: 1
+  fic_length: 1
+  fic_length_enforce: false
+
+two:
+  title: MyString
+  description: MyText
+  owner: 1
+  fic_length: 1
+  fic_length_enforce: false

@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of   :email
   validates_format_of       :email,    :with => Authentication.email_regex, :message => Authentication.bad_email_message
 
+  has_many :fics
+  has_many :stories, :through => :fics
   
 
   # HACK HACK HACK -- how to do attr_accessible from here?

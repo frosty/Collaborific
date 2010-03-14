@@ -9,7 +9,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100313163941) do
+ActiveRecord::Schema.define(:version => 20100314131622) do
+
+  create_table "fics", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "story_id"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stories", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "owner"
+    t.integer  "fic_length"
+    t.boolean  "fic_length_enforce"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "login",                     :limit => 40
