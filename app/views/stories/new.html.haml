@@ -1,0 +1,23 @@
+%h1 Start a new story
+
+#form
+  = error_messages_for :story
+  
+  - form_for :story, :url => {:action => :create} do |f|
+    %p
+      = f.label 'title'
+      = f.text_field :title
+    
+    %p
+      = f.label 'description'
+      = f.text_area :description, {:cols => 40, :rows => 3}
+    
+    %p
+      = f.label 'fic_length', 'Length of each story section'
+      = f.text_field :fic_length
+    
+    %p
+      = f.label 'fic_length_enforce', 'Prevent authors from going over this limit?'
+      = f.check_box :fic_length_enforce
+    
+    = submit_tag 'Start story'
