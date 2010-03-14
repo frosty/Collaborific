@@ -6,6 +6,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   map.resources :stories
   
+  map.user_stories 'user/:id/stories', :controller => 'stories', :action => 'list'
+  
   map.resource :session
 
   # The priority is based upon order of creation: first created -> highest priority.

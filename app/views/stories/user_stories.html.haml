@@ -1,0 +1,7 @@
+%h1 #{@user.login}'s stories
+
+%ul{:id => "stories_list"}
+  -for story in @stories
+    %li
+      %strong= story.title
+      = story.description

@@ -23,3 +23,13 @@ Feature: Writing stories
     Then I should see "You've started your story! Now it's time to add the first fic."
     And I should see "The tale of the flopsy bunny"
     And I should see "A story about a cute little bunny rabbit."
+  
+  Scenario: View a user's stories
+    Given I have started a story with the following data:
+      | title | The tale of the flopsy bunny |
+      | description | A story about a cute little bunny rabbit. |
+      | fic_length | 200 |
+      | fic_length_enforce | true |
+    When I go to my stories page
+    Then I should see "mctestface's stories"
+    And I should see "The tale of the flopsy bunny" within "#stories_list"
