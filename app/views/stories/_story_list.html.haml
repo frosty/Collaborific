@@ -1,0 +1,10 @@
+%ul{:id => "stories_list"}
+  -for story in @stories
+    %li
+      %strong= story.title
+      %p
+        Creator: 
+        = story.owner.login if story.owner
+      %p
+        Description: 
+        = story.description

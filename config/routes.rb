@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   map.resources :stories
   
-  map.user_stories 'user/:id/stories', :controller => 'stories', :action => 'list'
+  map.user_stories 'user/:id/stories', :controller => 'stories', :action => 'index'
   
   map.resource :session
 

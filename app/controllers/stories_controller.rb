@@ -22,13 +22,13 @@ class StoriesController < ApplicationController
     @story = Story.find(params[:id])
   end
   
-  def list
+  def index
     if params[:id]
       @user = User.find(params[:id])
       @stories = @user.stories
       render :template => "stories/user_stories"
     else
-      @stories = Story.all
+      @stories = Story.find(:all)
     end
   end
   
