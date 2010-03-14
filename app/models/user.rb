@@ -19,8 +19,9 @@ class User < ActiveRecord::Base
   validates_format_of       :email,    :with => Authentication.email_regex, :message => Authentication.bad_email_message
 
   has_many :fics
-  has_many :stories, :through => :fics
-  has_many :collaborations, :through => :collaborators, :source => :stories
+  #has_many :stories, :through => :fics
+  has_many :collaborators
+  has_many :stories, :through => :collaborators
   
 
   # HACK HACK HACK -- how to do attr_accessible from here?
