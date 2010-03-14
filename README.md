@@ -1,7 +1,7 @@
 Collaborific!
 =============
 
-Collaborific (now hosted via [heroku.com](heroku) at [www.collaborific.com](www.collaborific.com)) is a collaborative fiction writing network where you and your friends can write stories together!
+Collaborific (now hosted via [http://heroku.com](heroku) at [http://www.collaborific.com](www.collaborific.com)) is a collaborative fiction writing network where you and your friends can write stories together!
 
 
 Outline
