@@ -6,4 +6,6 @@ class Story < ActiveRecord::Base
   has_many :users, :through => :collaborators
   
   validates_presence_of :owner
+  validates_presence_of :title
+  validates_presence_of :description
 end
