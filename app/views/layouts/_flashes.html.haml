@@ -3,5 +3,5 @@
     %div{:class => key, :id => "flash_#{key}"}= value
     :javascript
       Event.observe(window, 'load', function() {
-        $('flash_#{key}').fade({ duration: 3.0 });
+        setTimeout("$('flash_#{key}').fade({ duration: 2.0 })", 2000);
       });
