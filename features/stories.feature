@@ -41,3 +41,13 @@ Feature: Writing stories
     Given there are no stories in existence
     When I go to the stories page
     Then I should see "No stories added yet..."
+
+  Scenario: View all stories
+    # This line adds 'Ode to beans'
+    Given there are stories in existence
+    When I go to the stories page
+    Then I should see "Latest stories"
+    And I should see "Ode to beans" within "#stories_list"
+    And I follow "Ode to beans"
+    Then I should be on the story page
+    Then show me the page

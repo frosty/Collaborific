@@ -1,10 +1,10 @@
 %ul{:id => "stories_list"}
   -for story in @stories
     %li
-      %strong= story.title
+      %strong= link_to story.title, story
       %p
-        Creator: 
-        = story.owner.login if story.owner
+        - "Creator: "
+        - story.owner.login if story.owner
       %p
         Description: 
         = story.description
