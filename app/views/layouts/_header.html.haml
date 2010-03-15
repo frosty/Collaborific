@@ -1,8 +1,8 @@
 #menu
   
-  %h1 Collaborific
+  %h1= link_to 'Collaborific', '/'
 
-  %ul.menu
+  %div
     -if !(logged_in?)
       %li= link_to 'Sign up', signup_path
       %li= link_to 'Log in', login_path
