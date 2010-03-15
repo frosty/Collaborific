@@ -22,6 +22,9 @@ module NavigationHelpers
     
     when /my stories page/
       user_stories_url @user.id
+      
+    when /the stories page/
+      all_stories_url
     
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

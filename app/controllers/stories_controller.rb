@@ -15,6 +15,8 @@ class StoriesController < ApplicationController
       redirect_to(@story)
     else
       flash[:error] = "There was a problem starting your story."
+      # Rollback the initial save
+      @story.destroy unless @story.new_record?
       render :action => 'new'
     end
   end

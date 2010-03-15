@@ -15,9 +15,9 @@ Feature: Writing stories
   Scenario: Begin a story
     Given I am on the new story page
     And I fill in the following:
-      | Title | The tale of the flopsy bunny |
-      | Description | A story about a cute little bunny rabbit. |
-      | Length of each story section | 200 |
+      | Title                        | The tale of the flopsy bunny              |
+      | Description                  | A story about a cute little bunny rabbit. |
+      | Length of each story section | 200                                       |
     And I check "Prevent contributors from going over this limit?"
     And I press "Start story"
     Then I should see "You've started your story! Now it's time to add the first fic."
@@ -26,10 +26,18 @@ Feature: Writing stories
   
   Scenario: View a user's stories
     Given I have started a story with the following data:
-      | title | The tale of the flopsy bunny |
-      | description | A story about a cute little bunny rabbit. |
-      | fic_length | 200 |
-      | fic_length_enforce | true |
+      | title              | The tale of the flopsy bunny              |
+      | description        | A story about a cute little bunny rabbit. |
+      | fic_length         | 200                                       |
+      | fic_length_enforce | true                                      |
     When I go to my stories page
     Then I should see "mctestface's stories"
     And I should see "The tale of the flopsy bunny" within "#stories_list"
+
+  Scenario: View all stories
+    Given there are stories in existence
+    When I go to the stories page
+    Then I should see all of the stories
+    Given there are no stories in existence
+    When I go to the stories page
+    Then I should see "No stories added yet..."
