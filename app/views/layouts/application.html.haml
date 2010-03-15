@@ -3,8 +3,11 @@
   %head
     %title Collaborific
     = render :partial => 'layouts/styles'
-    
+
   %body
+  %script{:type => 'text/javascript', :src => '/javascripts/prototype.js'}
+  %script{:type => 'text/javascript', :src => '/javascripts/effects.js'}
+  
   %div.container
     = render :partial => 'layouts/header'
     = render :partial => 'layouts/flashes'
