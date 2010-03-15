@@ -9,6 +9,7 @@ class StoriesController < ApplicationController
   
   def create
     @story = Story.new(params[:story])
+    
     @story.owner = current_user
     if !@story.save
       render :action => 'new'
@@ -29,6 +30,7 @@ class StoriesController < ApplicationController
   
   def show
     @story = Story.find(params[:id])
+    @fic = Fic.new(:story => @story)
   end
   
   def index

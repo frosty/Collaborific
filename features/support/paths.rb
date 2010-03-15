@@ -28,6 +28,9 @@ module NavigationHelpers
     
     when /the story page/
       story_path @story.id
+      
+    when /the new fic page/
+      new_fic_path
     
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
