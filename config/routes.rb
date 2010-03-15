@@ -4,10 +4,13 @@ ActionController::Routing::Routes.draw do |map|
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.resources :users
-  map.resources :stories
   map.resources :fics
   
   map.user_stories 'user/:id/stories', :controller => 'stories', :action => 'index'
+  
+  map.resources :stories  do |story|
+    story.resources :fics
+  end
   
   map.resource :session
   

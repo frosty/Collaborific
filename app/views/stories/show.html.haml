@@ -4,6 +4,8 @@
 
 %ul
   - for fic in @story.fics
-    %li= fic.content
-
-=link_to "Add Fic", :controller => "fics", :action => "new", :id => @story
+    %li
+      %p= fic.created_at.strftime("%A, %B %d at %H:%M")
+      %div= fic.content
+      
+  = link_to "Add fic", new_story_fic_url(@story)

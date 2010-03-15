@@ -1,7 +1,7 @@
 #form
   = error_messages_for :fic
   
-  - form_for :fic, :url => {:action => :create} do |f|
+  - form_for [@story, @fic] do |f|
     %p
       = f.label 'content'
       = f.text_area :content, {:cols => 40, :rows => 3}

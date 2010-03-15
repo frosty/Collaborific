@@ -30,7 +30,6 @@ class StoriesController < ApplicationController
   
   def show
     @story = Story.find(params[:id])
-    @fic = Fic.new(:story => @story)
   end
   
   def index
@@ -42,5 +41,6 @@ class StoriesController < ApplicationController
       @stories = Story.find(:all)
     end
   end
+
   
 end
