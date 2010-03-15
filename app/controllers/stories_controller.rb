@@ -1,7 +1,10 @@
 class StoriesController < ApplicationController
 
   def new
-
+      if current_user.nil?
+        flash[:error] = "You must be logged in to create a story."
+        redirect_to login_path
+      end
   end
   
   def create
