@@ -30,6 +30,7 @@ Feature: Writing stories
       | description        | A story about a cute little bunny rabbit. |
       | fic_length         | 200                                       |
       | fic_length_enforce | true                                      |
+      | owner              | 1                                         |
     When I go to my stories page
     Then I should see "mctestface's stories"
     And I should see "The tale of the flopsy bunny" within "#stories_list"
