@@ -7,6 +7,7 @@ class StoriesController < ApplicationController
   def create
     @story = Story.new(params[:story])
     @story.owner = current_user
+    @story.save
     @story.collaborators.create({:user => current_user})
     
     if @story.save
