@@ -30,6 +30,7 @@ class StoriesController < ApplicationController
   
   def show
     @story = Story.find(params[:id])
+    @fics = @story.fics
   end
   
   def index

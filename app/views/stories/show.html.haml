@@ -1,11 +1,7 @@
 %h2= @story.title
 
-%h3= @story.description
+%p= @story.description
 
-%ul
-  - for fic in @story.fics
-    %li
-      %p= fic.created_at.strftime("%A, %B %d at %H:%M")
-      %div= fic.content
+= render :partial => 'fics/fic_list'
       
-  = link_to "Add fic", new_story_fic_url(@story)
+= link_to "Add fic", new_story_fic_url(@story)

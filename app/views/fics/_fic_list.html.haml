@@ -1,0 +1,5 @@
+%ul{:id => "fic_list"}
+  - for fic in @fics
+    %li
+      %p= fic.created_at.strftime("%A, %B %d at %H:%M")
+      %div= fic.content

@@ -69,6 +69,12 @@ Feature: Writing stories
     Given there are stories in existence
     And I am on the story page
     Then I should see all of this story's fics
+  
+  Scenario: View my story
+    Given there are stories in existence
+    And I am on my user page
+    Then show me the page
+    Then I should see "Ode to beans" within "#stories_list"
     
   # FIXME: We should probably move these Fic scenarios
   # into their own features file.
