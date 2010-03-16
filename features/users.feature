@@ -44,11 +44,6 @@ Feature: Authentication
   Scenario: Login
     Given a logged in user
     And I am on the home page
-    Then I should see "You are logged in."
-  
-  Scenario: Login
-    Given a logged in user
-    And I am on the home page
     Then I should not see "Sign up"
     And I should not see "Log in"
     And I should see "Log out"

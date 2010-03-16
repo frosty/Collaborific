@@ -1,11 +1,13 @@
 Given /^I have started a story with the following data:$/ do |table|
-  @story = @user.stories.create!(table.rows_hash)
+  @story = @user.stories.new(table.rows_hash)
+  @story.owner = @user
+  @story.save
 end
 
 Given /^there are stories in existence$/ do
   @story = Story.create!({
                   :title => "Ode to beans",
-                  :description => "A testement to the musical fruit",
+                  :description => "A testament to the musical fruit",
                   :owner => @user
   })
   @story.save

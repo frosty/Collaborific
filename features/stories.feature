@@ -30,7 +30,6 @@ Feature: Writing stories
       | description        | A story about a cute little bunny rabbit. |
       | fic_length         | 200                                       |
       | fic_length_enforce | true                                      |
-      | owner              | 1                                         |
     When I go to my stories page
     Then I should see "mctestface's stories"
     And I should see "The tale of the flopsy bunny" within "#stories_list"
@@ -56,11 +55,10 @@ Feature: Writing stories
     Given there are stories in existence
     And I am on the story page
     Then I should see all of this story's fics
-    Then show me the page
-
+    
   Scenario: Add a fic
     Given there are stories in existence
     When I go to the story page
-    Then I should see "Add Fic"
-    When I follow "Add Fic"
+    Then I should see "Add fic"
+    When I follow "Add fic"
     Then I should be on the new fic page

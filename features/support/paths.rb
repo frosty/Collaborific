@@ -30,7 +30,7 @@ module NavigationHelpers
       story_path @story.id
       
     when /the new fic page/
-      new_fic_path
+      new_story_fic_path(@story)
     
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
