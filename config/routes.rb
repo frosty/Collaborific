@@ -3,16 +3,18 @@ ActionController::Routing::Routes.draw do |map|
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
-  map.resources :users
-  map.resources :fics
   
-  map.user_stories 'user/:id/stories', :controller => 'stories', :action => 'index'
+  map.user_page '/user/:login', :controller => 'users', :action => 'show'
+  
+  map.user_stories '/user/:id/stories', :controller => 'stories', :action => 'index'
   
   map.resources :stories  do |story|
     story.resources :fics
   end
   
   map.resource :session
+  map.resources :users
+  map.resources :fics
   
   map.root :controller => 'stories'
 

@@ -48,3 +48,8 @@ Feature: Authentication
     And I should not see "Log in"
     And I should see "Log out"
   
+  Scenario: User page
+    Given a valid user
+    And I go to my user page
+    Then I should see "mctestface"
+  

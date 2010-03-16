@@ -1,6 +1,6 @@
 Given /^a valid user$/ do
   @user = User.create!({
-                  :login => "McTestFace",
+                  :login => "mctestface",
                   :email => "testy@testface.com",
                   :password => "wibble",
                   :password_confirmation => "wibble"

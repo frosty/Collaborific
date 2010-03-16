@@ -17,6 +17,9 @@ module NavigationHelpers
     when /the login page/
       login_path
     
+    when /my user page/
+      user_page_path @user.login
+    
     when /the new story page/
       new_story_path
     
