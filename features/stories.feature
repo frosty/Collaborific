@@ -23,6 +23,20 @@ Feature: Writing stories
     Then I should see "You've started your story! Now it's time to add the first fic."
     And I should see "The tale of the flopsy bunny"
     And I should see "A story about a cute little bunny rabbit."
+    
+  Scenario: Begin a story
+    Given I am on the new story page
+    And I fill in the form with valid story data
+    And I fill in "Catfood" for "Length of each story section"
+    And I press "Start story"
+    Then I should see "Fic length is not a number"
+    
+  Scenario: Begin a story
+    Given I am on the new story page
+    And I fill in the form with valid story data
+    And I fill in "-1341" for "Length of each story section"
+    And I press "Start story"
+    Then I should see "Fic length must be greater than 1"
   
   Scenario: View a user's stories
     Given I have started a story with the following data:
@@ -56,9 +70,18 @@ Feature: Writing stories
     And I am on the story page
     Then I should see all of this story's fics
     
+  # FIXME: We should probably move these Fic scenarios
+  # into their own features file.
   Scenario: Add a fic
     Given there are stories in existence
     When I go to the story page
     Then I should see "Add fic"
     When I follow "Add fic"
     Then I should be on the new fic page
+
+  Scenario: Add a fic
+    Given there are stories in existence
+    When I go to the story page
+    And I follow "Add fic"
+    And I press "Add fic"
+    Then I should see "There was a problem adding your fic."
