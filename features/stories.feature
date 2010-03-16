@@ -73,7 +73,6 @@ Feature: Writing stories
   Scenario: View my story
     Given there are stories in existence
     And I am on my user page
-    Then show me the page
     Then I should see "Ode to beans" within "#stories_list"
     
   # FIXME: We should probably move these Fic scenarios

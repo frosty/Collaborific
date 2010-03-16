@@ -39,7 +39,8 @@ class StoriesController < ApplicationController
       @stories = @user.stories
       render :template => "stories/user_stories"
     else
-      @stories = Story.find(:all)
+      @stories = Story.find(:all, :order => "created_at DESC", :limit => 5)
+      @fics = Fic.find(:all, :order	=> "created_at DESC", :limit	=> 5)
     end
   end
 
