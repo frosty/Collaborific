@@ -9,7 +9,11 @@ class FicsController < ApplicationController
   def create
     @fic = @story.fics.new(params[:fic])
     @fic.user = current_user
-    if (@fic.save)
+    if @story.fic_length_enforce && @fic.content.split(" ").size >
+                                                              @story.fic_length
+      flash[:error] = "Your fic was too long for this story. Fics for this story must be shorter than #{@story.fic_length} words."
+      render :action => 'new'
+    elsif (@fic.save)
       flash[:notice] = "Your fic has been added to the story."
       redirect_to story_url(@story)
     else
