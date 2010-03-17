@@ -1,11 +1,14 @@
-#menu
+#header
   
-  %h1= link_to 'Collaborific', '/'
-
-  %div
-    -if !(logged_in?)
-      %li= link_to 'Sign up', signup_path
-      %li= link_to 'Log in', login_path
-    -else
-      %li= link_to 'Start a new story', new_story_path
-      %li= link_to 'Log out', logout_path
+  %h1{:class => 'span-12'}= link_to 'Collaborific', '/'
+  
+  #utility_menu{:class => 'span-12 last'}
+    %ul
+      -if !(logged_in?)
+        %li= link_to 'Sign up', signup_path
+        %li= link_to 'Log in', login_path
+      -else
+        %li= link_to 'Home', '/'
+        %li= link_to 'Start a new story', new_story_path
+        %li= link_to 'Profile', user_page_path(current_user.login)
+        %li= link_to 'Log out', logout_path

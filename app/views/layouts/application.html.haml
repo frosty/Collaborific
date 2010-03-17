@@ -10,7 +10,11 @@
   
   %div.container
     = render :partial => 'layouts/header'
+  
+  %div.container
     = render :partial => 'layouts/flashes'
+    
+  %div.container
     = yield
 
     %script{:type => "text/javascript"} 

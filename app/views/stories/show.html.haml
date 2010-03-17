@@ -1,7 +1,18 @@
-%h2= @story.title
+#story_content.span-18
+  %h2= @story.title
+  %p Started by: #{@story.owner.login}
+  %p= @story.description
+  
+  %h3 And so the story begins...
 
-%p= @story.description
-
-= render :partial => 'fics/fic_list'
+  = render :partial => 'fics/fic_list'
       
-= link_to("Add fic", new_story_fic_url(@story)) if logged_in?
+  = link_to("Add fic", new_story_fic_url(@story)) if logged_in?
+
+#sidebar{:class => "span-6 last"}
+  %h4 Collaborators
+  
+  %ul
+  - for collab in @story.users
+    %li= link_to collab.login, user_page_path(collab.login)
+  

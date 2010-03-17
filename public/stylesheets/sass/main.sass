@@ -1,0 +1,49 @@
+!header_colour = #ff6400
+
+=link_style
+  a
+    text-decoration: none
+    &:hover
+      text-decoration: underline
+
+=rounded_corners
+  -webkit-border-radius: 5px
+  -moz-border-radius: 5px
+  border-radius: 5px
+
+#header
+  margin-top: 2em
+  color = !header_colour
+  font:
+    weight: bold
+    size: 16px
+    family: helvetica, arial, sans-serif
+  +link_style
+  a
+    color = !header_colour
+
+#utility_menu
+  ul
+    display: inline
+    float: right
+    +rounded_corners
+    background-color: #eee
+    padding:
+      right: 10px
+      left: 10px
+    li
+      display: inline
+      padding-left: 10px
+      padding-right: 10px
+      border-right: 1px solid black
+      font:
+        weight: bold
+        size: 12px
+      +link_style
+      a
+        color: #000
+      &:last-child
+        border: none
+        
+#sidebar
+  margin-top: 15px
