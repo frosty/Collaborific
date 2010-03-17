@@ -4,4 +4,4 @@
 
 = render :partial => 'fics/fic_list'
       
-= link_to "Add fic", new_story_fic_url(@story)
+= link_to("Add fic", new_story_fic_url(@story)) if logged_in?

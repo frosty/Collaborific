@@ -74,27 +74,3 @@ Feature: Writing stories
     Given there are stories in existence
     And I am on my user page
     Then I should see "Ode to beans" within "#stories_list"
-    
-  # FIXME: We should probably move these Fic scenarios
-  # into their own features file.
-  Scenario: Add a fic
-    Given there are stories in existence
-    When I go to the story page
-    Then I should see "Add fic"
-    When I follow "Add fic"
-    Then I should be on the new fic page
-
-  Scenario: Add a fic
-    Given there are stories in existence
-    When I go to the story page
-    And I follow "Add fic"
-    And I press "Add fic"
-    Then I should see "There was a problem adding your fic."
-  
-  Scenario: Add a fic
-    Given there are stories in existence
-    When I go to the story page
-    And I follow "Add fic"
-    And I fill in 250 words of lorem ipsum for "Content"
-    And I press "Add fic" 
-    Then I should see "Your fic was too long for this story."
