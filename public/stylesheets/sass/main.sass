@@ -1,4 +1,5 @@
-!header_colour = #570186
+!link_colour = #570186
+!hover_colour = #9202e5
 
 =link_style
   a
@@ -14,24 +15,35 @@
 =georgia
   font: 
     family: Georgia, Times New Roman, serif
-    size: 16px
+    size: 14px
   color: #000
+
+=helvetica
 
 =fic_border
   border-left: 1px #999 solid
   padding-left: 20px
 
+p
+  +georgia
+  
+a
+  text-decoration: none
+  color = !link_colour
+  &:hover
+    color = !hover_colour
+    
 #header
   margin-top: 40px
   padding-bottom: 100px
-  color = !header_colour
+  color = !link_colour
   font:
     weight: bold
     size: 16px
     family: helvetica, arial, sans-serif
   +link_style
   a
-    color = !header_colour
+    color = !link_colour
 
 #logo
   text-indent: -2000em
@@ -76,16 +88,48 @@
     family: Helvetica Neue, Helvetica, Arial, sans-serif
     size: 40px
   li
-    margin-top: 20px
     margin-bottom: 20px
     padding-top: 0px
     padding-bottom: 0px
-  p
-    +georgia
-    +fic_border
-  div
-    +georgia
-    +fic_border
+    .fic
+      +georgia
+      +fic_border
+      .author, .date
+        font-size: 12px
+      .date
+        color: #999
+        font-style: italic
 
-p
-  +georgia
+#story_list
+  margin-left: 0
+  padding-left: 0
+  list-style-type: none
+  li
+    padding-bottom: 10px
+  .story_title
+    +helvetica
+    font-size: 20px
+    margin-bottom: 5px
+    a
+      font-weight: bold
+      text-decoration: none
+      color = !link_colour
+      &:hover
+        color = !hover_colour
+
+
+h2.story_title
+  margin-bottom: 0px
+  font-size: 30px
+  font-weight: bold
+  +helvetica
+
+#story_content
+  .story_description
+    margin-bottom: 40px
+  .story_owner
+    display: block
+    padding-bottom: 3px
+    +helvetica
+    font-size: 14px
+    color: #666

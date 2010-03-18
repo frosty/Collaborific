@@ -1,12 +1,8 @@
-%ul{:id => "stories_list"}
+%ul{:id => "story_list"}
   -for story in @stories
     %li
-      %strong= link_to story.title, story
-      %p
-        - "Creator: "
-        - story.owner.login if story.owner
-      %p
-        Description: 
-        = story.description
+      %h4.story_title= link_to story.title, story
+      %span.story_owner= "Started by #{story.owner.login}" if story.owner
+      %p.story_description= story.description
   -if @stories.empty?
     %li No stories added yet...

@@ -1,7 +1,8 @@
 #story_content.span-18
-  %h2= @story.title
-  %p Started by: #{@story.owner.login}
-  %p= @story.description
+
+  %h2.story_title= @story.title
+  %span.story_owner= "Started by #{@story.owner.login}" if @story.owner
+  %p.story_description= @story.description
   
   %h3 And so the story begins...
 
