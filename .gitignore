@@ -2,3 +2,4 @@ tmp/*
 log/*
 db/development.sqlite3
 .DS_Store
+public/stylesheets/main.css

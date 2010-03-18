@@ -14,8 +14,8 @@ Given /^there are stories in existence$/ do
   })
   @story.save
   @story.fics.create!({
-    :content => "And so it came to pass that the dancing festival of the musical fruit did burst forth one Summer's day with rapture and joy."
-  })
+    :content => "And so it came to pass that the dancing festival of the musical fruit did burst forth one Summer's day with rapture and joy.",
+    :user => @user})
 end
 
 Given /^there are no stories in existence$/ do

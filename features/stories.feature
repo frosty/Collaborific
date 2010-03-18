@@ -74,3 +74,8 @@ Feature: Writing stories
     Given there are stories in existence
     And I am on my user page
     Then I should see "Ode to beans" within "#stories_list"
+    
+  Scenario: Invite a user
+    Given there are stories in existence
+    And I am on the story page
+    Then I should see "Invite a collaborator" within "#sidebar"
