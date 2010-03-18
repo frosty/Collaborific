@@ -1,4 +1,4 @@
-!header_colour = #ff6400
+!header_colour = #570186
 
 =link_style
   a
@@ -11,8 +11,19 @@
   -moz-border-radius: 5px
   border-radius: 5px
 
+=georgia
+  font: 
+    family: Georgia, Times New Roman, serif
+    size: 16px
+  color: #000
+
+=fic_border
+  border-left: 1px #999 solid
+  padding-left: 20px
+
 #header
-  margin-top: 2em
+  margin-top: 40px
+  padding-bottom: 100px
   color = !header_colour
   font:
     weight: bold
@@ -21,6 +32,15 @@
   +link_style
   a
     color = !header_colour
+
+#logo
+  text-indent: -2000em
+  display: block
+  width: 445px
+  height: 59px
+  background:
+    image: url('/images/collaborific.png')
+    repeat: no-repeat
 
 #utility_menu
   ul
@@ -47,3 +67,25 @@
         
 #sidebar
   margin-top: 15px
+
+#fic_list
+  margin-left: 60px
+  padding-left: 0
+  color: #ccc
+  font:
+    family: Helvetica Neue, Helvetica, Arial, sans-serif
+    size: 40px
+  li
+    margin-top: 20px
+    margin-bottom: 20px
+    padding-top: 0px
+    padding-bottom: 0px
+  p
+    +georgia
+    +fic_border
+  div
+    +georgia
+    +fic_border
+
+p
+  +georgia
