@@ -11,6 +11,9 @@
   = link_to("Add fic", new_story_fic_url(@story)) if logged_in?
 
 #sidebar{:class => "span-6 last"}
+  %a{:href => stories_rss_path(@story)}
+    %img{ :src => "/images/feed_icon.png", :alt => "Subscribe", :title => "Subscribe to this story"}
+
   %h4 Collaborators
   
   %ul
