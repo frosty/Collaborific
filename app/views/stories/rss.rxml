@@ -11,7 +11,7 @@ xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do
      xml.item do
        xml.title       @story.title
        xml.link        url_for :only_path => false, :controller => 'stories', :action => 'show', :id => @story.id
-       xml.description fic.content
+       xml.description fic.rss_content
        xml.guid        url_for :only_path => false, :controller => 'stories', :action => 'show', :id => @story.id
      end
    end
