@@ -1,0 +1,20 @@
+xml.instruct!
+
+xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do
+ xml.channel do
+
+   xml.title       @story.title
+   xml.link        url_for :only_path => false, :controller => 'stories'
+   xml.description @story.description
+
+   @story.fics.each do |fic|
+     xml.item do
+       xml.title       @story.title
+       xml.link        url_for :only_path => false, :controller => 'stories', :action => 'show', :id => @story.id
+       xml.description fic.content
+       xml.guid        url_for :only_path => false, :controller => 'stories', :action => 'show', :id => fic.id
+     end
+   end
+
+ end
+end
