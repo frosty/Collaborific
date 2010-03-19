@@ -7,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.user_page '/user/:login', :controller => 'users', :action => 'show'
   
   map.user_stories '/user/:id/stories', :controller => 'stories', :action => 'index'
+  map.stories_rss '/stories/rss/', :controller => 'stories', :action => 'rss'
   
   map.resources :stories  do |story|
     story.resources :fics

@@ -44,5 +44,11 @@ class StoriesController < ApplicationController
     end
   end
 
+  def rss
+    @story = Story.find(params[:id], :order => "id DESC", :limit => 10)
+    @fics = @story.fics
+    render :layout => false
+    response.headers["Content-Type"] = "application/xml; charset=utf-8"
+  end
   
 end
