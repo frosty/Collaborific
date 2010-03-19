@@ -1,5 +1,6 @@
 %ol{:id => "fic_list"}
   - for fic in @fics
+    %a{:name => "#{fic.id}"}
     %li
       %div{:class => 'fic'}
         %p.fic_content= fic.content
