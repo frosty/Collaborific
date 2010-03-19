@@ -30,10 +30,6 @@ class FicsController < ApplicationController
   
   end
   
-  def rss_content
-    @fic.content + "<br><br>Written by: #{@fic.user}"
-  end
-  
 private
 
   def find_story

@@ -1,6 +1,5 @@
 #story_content.span-18
 
-  %link{:rel => "alternate", :type => "application/rss+xml", :title => "RSS", :href => stories_rss_path(@story)}
   %h2.story_title= @story.title
   %span.story_owner= "Started by #{@story.owner.login}" if @story.owner
   %p.story_description= @story.description
