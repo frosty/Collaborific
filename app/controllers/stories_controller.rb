@@ -37,7 +37,7 @@ class StoriesController < ApplicationController
   
   def create_fic
     @story = Story.find(params[:id])
-    @fic = @story.fics.create(params[:fic])
+    @fic = @story.fics.new(params[:fic])
     @fic.user = current_user
     if @story.fic_length_enforce && @fic.content.split(" ").size >
                                                               @story.fic_length
