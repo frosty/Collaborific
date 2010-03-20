@@ -9,7 +9,7 @@ class InvitationsController < ApplicationController
     if success && @invite.errors.empty?
       InviteMailer.deliver_invite_email(@invite)
       # should check for success of email send.
-      flash[:success] = "We've sent an invitation to #{user.login}."
+      flash[:success] = "We've sent an invitation to #{@user.login}."
       redirect_to @story
     else
       flash[:error] = "There was an error sending the invitation. Please try again."

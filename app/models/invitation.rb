@@ -7,6 +7,10 @@ class Invitation < ActiveRecord::Base
   validates_uniqueness_of :token
   #validates_uniqueness_of :user, :scope => "story_id"
 
+  def self.invitations_for_story(story)
+    find(:all, :conditions => {:story_id => story.id}) || nil
+  end
+
 protected
   def before_validation_on_create
     self.token = ActiveSupport::SecureRandom.base64.gsub("/","_").gsub(/=|\+|\?/,"") if self.new_record? and self.token.nil?  

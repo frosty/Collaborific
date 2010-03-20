@@ -23,10 +23,17 @@
   %h4 Collaborators
   
   %ul
-  - for collab in @story.users
-    %li= link_to collab.login, user_page_path(collab.login)
+    - for collab in @story.users
+      %li= link_to collab.login, user_page_path(collab.login)
   
   - if @story.owner? current_user
+    - @invitations = Invitation.invitations_for_story(@story)
+    - if @invitations
+      %h4 Pending invitations
+      %ul
+        - for invite in @invitations
+          %li= invite.user.login
+    
     %h4 Invite collaborators
     - form_tag '/invite/add' do
       = label_tag 'Username'
