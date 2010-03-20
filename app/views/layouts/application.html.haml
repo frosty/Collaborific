@@ -3,6 +3,7 @@
   %head
     %title Collaborific
     = render :partial => 'layouts/styles'
+    %link{:rel => "alternate", :type => "application/rss+xml", :title => "RSS", :href => stories_rss_path(@story)}
 
   %body
   %script{:type => 'text/javascript', :src => '/javascripts/prototype.js'}
