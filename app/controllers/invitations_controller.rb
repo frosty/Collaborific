@@ -17,15 +17,20 @@ class InvitationsController < ApplicationController
   
   def process_invite
     @invite = Invitation.find_by_token(params[:token])
-    @story = Story.find_by_id(@invite.story)
-    if @invite.user == current_user
-      @story.collaborators.create(:user => @invite.user)
-      @invite.destroy
-      flash[:notice] = "You're now a collaborator on this story!"
-      redirect_to @story
+    if @invite
+      @story = Story.find_by_id(@invite.story)
+      if @invite.user == current_user
+        @story.collaborators.create(:user => @invite.user)
+        @invite.destroy
+        flash[:notice] = "You're now a collaborator on this story!"
+        redirect_to @story
+      else
+        flash[:error] = "The invitation code you've tried to use doesn't belong to you."
+        redirect_to @story
+      end
     else
-      flash[:error] = "The invitation code you've tried to use doesn't belong to you."
-      redirect_to @story
+      flash[:error] = "That invitation code has expired or doesn't exist."
+      redirect_to '/'
     end
   end
   
