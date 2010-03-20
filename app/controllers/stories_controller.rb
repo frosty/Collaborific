@@ -44,7 +44,7 @@ class StoriesController < ApplicationController
       render :action => 'show'
     elsif (@fic.save)
       flash[:notice] = "Your fic has been added to the story."
-      redirect_to @story, :anchor => @fic.id
+      redirect_to :action => 'show', :id => @story.id, :anchor => @fic.id
     else
       flash[:error] = "There was a problem adding your fic."
       redirect_to @story
