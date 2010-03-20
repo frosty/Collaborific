@@ -7,6 +7,9 @@ class InvitationsController < ApplicationController
     if @user.nil?
       flash[:error] = "That user doesn't exist."
       redirect_to @story and return
+    elsif Invitation.find_by_user_id_and_story_id(@user,@story)
+      flash[:error] = "That user has already been invited."
+      redirect_to @story and return
     end
 
     @invite = Invitation.new(:user => @user, :story => @story)
