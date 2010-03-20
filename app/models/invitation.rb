@@ -6,10 +6,18 @@ class Invitation < ActiveRecord::Base
   validates_presence_of :token
   validates_uniqueness_of :token
   #validates_uniqueness_of :user, :scope => "story_id"
+  # validate_on_create :valid_user?
 
   def self.invitations_for_story(story)
     find(:all, :conditions => {:story_id => story.id}) || nil
   end
+
+private
+  # def valid_user? 
+  #   if !User.find(user)
+  #     errors.add("That user doesn't exist.")
+  #   end
+  # end
 
 protected
   def before_validation_on_create

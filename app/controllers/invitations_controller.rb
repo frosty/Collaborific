@@ -3,6 +3,12 @@ class InvitationsController < ApplicationController
   def create
     @user = User.find_by_login(params[:login])
     @story = Story.find(params[:story])
+    
+    if @user.nil?
+      flash[:error] = "That user doesn't exist."
+      redirect_to @story and return
+    end
+
     @invite = Invitation.new(:user => @user, :story => @story)
     
     success = @invite && @invite.save
