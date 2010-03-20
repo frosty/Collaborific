@@ -13,4 +13,21 @@ class Story < ActiveRecord::Base
   def owner?(user)
     owner == user
   end
+  
+  class << self
+    def next_collaborator_for(story)
+       raise ArgumentError "Require an instance of Story" unless story.is_a? Story
+       collab_ids = story.collaborators.map(&:user_id)
+       if !story.fics.empty?
+         last_collab_id = story.fics.last.user_id
+         last_collab_index = collab_ids.index(last_collab_id) || -1
+         last_collab_index = -1 if collab_ids.last == last_collab_id
+       else
+          last_collab_index = -1
+       end
+       
+       next_collab_id = collab_ids[last_collab_index + 1]
+       User.find_by_id(next_collab_id)
+    end
+  end
 end

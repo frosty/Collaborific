@@ -31,6 +31,7 @@ class StoriesController < ApplicationController
   def show
     @story = Story.find(params[:id])
     @fics = @story.fics
+    @next_collab = Story.next_collaborator_for(@story)
     @fic = Fic.new
   end
   
