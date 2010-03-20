@@ -28,7 +28,7 @@
   
   - if @story.owner? current_user
     - @invitations = Invitation.invitations_for_story(@story)
-    - if @invitations
+    - if !@invitations.nil?
       %h4 Pending invitations
       %ul
         - for invite in @invitations
