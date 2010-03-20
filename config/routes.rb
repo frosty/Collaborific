@@ -8,6 +8,8 @@ ActionController::Routing::Routes.draw do |map|
   
   map.user_stories '/user/:id/stories', :controller => 'stories', :action => 'index'
   
+  map.add_fic '/story/:id/add', :controller => 'stories', :action => 'create_fic'
+  
   map.resources :stories  do |story|
     story.resources :fics
   end
@@ -60,5 +62,4 @@ ActionController::Routing::Routes.draw do |map|
   #map.connect ':controller/:action/:id'
   #map.connect ':controller/:action/:id.:format'
   
-  map.root :controller => "collaborific"
 end

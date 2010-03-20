@@ -8,7 +8,12 @@
 
   = render :partial => 'fics/fic_list'
       
-  = link_to("Add fic", new_story_fic_url(@story)) if logged_in?
+  - form_for [@story, @fic], :url => {:action => :create_fic, :controller => 'stories'} do |f|
+    %p
+      = f.label 'content'
+      = f.text_area :content, {:cols => 40, :rows => 3}
+    
+    = submit_tag 'Add Fic'
 
 #sidebar{:class => "span-6 last"}
   %h4 Collaborators
@@ -16,4 +21,3 @@
   %ul
   - for collab in @story.users
     %li= link_to collab.login, user_page_path(collab.login)
-  

@@ -31,6 +31,24 @@ class StoriesController < ApplicationController
   def show
     @story = Story.find(params[:id])
     @fics = @story.fics
+    @fic = Fic.new
+  end
+  
+  def create_fic
+    @story = Story.find(params[:id])
+    @fic = @story.fics.create(params[:fic])
+    @fic.user = current_user
+    if @story.fic_length_enforce && @fic.content.split(" ").size >
+                                                              @story.fic_length
+      flash[:error] = "Your fic was too long for this story. Fics for this story must be shorter than #{@story.fic_length} words."
+      render :action => 'show'
+    elsif (@fic.save)
+      flash[:notice] = "Your fic has been added to the story."
+      redirect_to @story, :anchor => @fic.id
+    else
+      flash[:error] = "There was a problem adding your fic."
+      redirect_to @story
+    end
   end
   
   def index
