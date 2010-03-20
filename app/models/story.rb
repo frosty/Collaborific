@@ -9,4 +9,8 @@ class Story < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :description
   validates_numericality_of :fic_length, :greater_than => 1, :only_integer => true
+  
+  def owner?(user)
+    owner == user
+  end
 end

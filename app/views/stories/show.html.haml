@@ -7,13 +7,14 @@
   %h3 And so the story begins...
 
   = render :partial => 'fics/fic_list'
-      
-  - form_for [@story, @fic], :url => {:action => :create_fic, :controller => 'stories'} do |f|
-    %p
-      = f.label 'content'
-      = f.text_area :content, {:cols => 40, :rows => 3}
+  
+  - if @story.users.include? current_user
+    - form_for [@story, @fic], :url => {:action => :create_fic, :controller => 'stories'} do |f|
+      %p
+        = f.label 'content'
+        = f.text_area :content, {:cols => 40, :rows => 3}
     
-    = submit_tag 'Add Fic'
+      = submit_tag 'Add Fic'
 
 #sidebar{:class => "span-6 last"}
   %a{:href => stories_rss_path(@story)}
@@ -24,3 +25,11 @@
   %ul
   - for collab in @story.users
     %li= link_to collab.login, user_page_path(collab.login)
+  
+  - if @story.owner? current_user
+    %h4 Invite collaborators
+    - form_tag '/invite/add' do
+      = label_tag 'Username'
+      = text_field_tag 'login'
+      = hidden_field_tag 'story', @story.id
+      = submit_tag 'Invite'
