@@ -12,6 +12,7 @@ ActionController::Routing::Routes.draw do |map|
   map.add_fic '/story/:id/add', :controller => 'stories', :action => 'create_fic'
   
   map.connect '/invite/add', :controller => 'invitations', :action => 'create'
+  map.process_invitation '/invite/:token', :controller => 'invitations', :action => 'process_invite'
   
   map.resources :stories  do |story|
     story.resources :fics
