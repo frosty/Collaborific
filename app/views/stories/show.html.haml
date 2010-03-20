@@ -4,11 +4,13 @@
   %span.story_owner= "Started by #{@story.owner.login}" if @story.owner
   %p.story_description= @story.description
   
+  %h3= "The next collaborator on this story is #{@next_collab.login}"
+  
   %h3 And so the story begins...
 
   = render :partial => 'fics/fic_list'
   
-  - if @story.users.include? current_user
+  - if (@story.users.include? current_user) and (@next_collab == current_user) 
     - form_for [@story, @fic], :url => {:action => :create_fic, :controller => 'stories'} do |f|
       %p
         = f.label 'content'
@@ -24,7 +26,12 @@
   
   %ul
     - for collab in @story.users
-      %li= link_to collab.login, user_page_path(collab.login)
+      - if collab == @next_collab
+        %li.next_collab
+          =link_to collab.login, user_page_path(collab.login)
+      - else
+        %li
+          =link_to collab.login, user_page_path(collab.login)
   
   - if @story.owner? current_user
     - @invitations = Invitation.invitations_for_story(@story)
