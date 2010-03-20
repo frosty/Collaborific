@@ -7,9 +7,13 @@ class InvitationsController < ApplicationController
     
     success = @invite && @invite.save
     if success && @invite.errors.empty?
-      render :text => "Inviting #{@user.login}, via #{@user.email}, with token: #{@invite.token}"
+      InviteMailer.deliver_invite_email(@invite)
+      # should check for success of email send.
+      flash[:success] = "We've sent an invitation to #{user.login}."
+      redirect_to @story
     else
-      render :text => "Error"
+      flash[:error] = "There was an error sending the invitation. Please try again."
+      redirect_to @story
     end
   end
   
@@ -22,7 +26,7 @@ class InvitationsController < ApplicationController
       if @invite.user == current_user
         @story.collaborators.create(:user => @invite.user)
         @invite.destroy
-        flash[:notice] = "You're now a collaborator on this story!"
+        flash[:success] = "You're now a collaborator on this story!"
         redirect_to @story
       else
         flash[:error] = "The invitation code you've tried to use doesn't belong to you."
