@@ -32,7 +32,7 @@ class StoriesController < ApplicationController
     @story = Story.find(params[:id])
     @fics = @story.fics
     @next_collab = Story.next_collaborator_for(@story)
-    @fic = Fic.new
+    @fic = @story.fics.new
   end
   
   def create_fic
@@ -41,8 +41,9 @@ class StoriesController < ApplicationController
     @fic.user = current_user
     if @story.fic_length_enforce && @fic.content.split(" ").size >
                                                               @story.fic_length
+      @fic.destroy
       flash[:error] = "Your fic was too long for this story. Fics for this story must be shorter than #{@story.fic_length} words."
-      render :action => 'show'
+      redirect_to @story
     elsif (@fic.save)
       flash[:notice] = "Your fic has been added to the story."
       redirect_to :action => 'show', :id => @story.id, :anchor => @fic.id
