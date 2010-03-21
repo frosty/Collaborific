@@ -1,5 +1,7 @@
 class StoriesController < ApplicationController
 
+  before_filter :find_story_and_fics, :only => [:show, :create_fic]
+
   def new
       if current_user.nil?
         flash[:error] = "You must be logged in to create a story."
@@ -28,31 +30,6 @@ class StoriesController < ApplicationController
     end
   end
   
-  def show
-    @story = Story.find(params[:id])
-    @fics = @story.fics
-    @next_collab = Story.next_collaborator_for(@story)
-    @fic = @story.fics.new
-  end
-  
-  def create_fic
-    @story = Story.find(params[:id])
-    @fic = @story.fics.new(params[:fic])
-    @fic.user = current_user
-    if @story.fic_length_enforce && @fic.content.split(" ").size >
-                                                              @story.fic_length
-      @fic.destroy
-      flash[:error] = "Your fic was too long for this story. Fics for this story must be shorter than #{@story.fic_length} words."
-      redirect_to @story
-    elsif (@fic.save)
-      flash[:notice] = "Your fic has been added to the story."
-      redirect_to :action => 'show', :id => @story.id, :anchor => @fic.id
-    else
-      flash[:error] = "There was a problem adding your fic."
-      redirect_to @story
-    end
-  end
-  
   def index
     if params[:id]
       @user = User.find(params[:id])
@@ -71,4 +48,29 @@ class StoriesController < ApplicationController
     response.headers["Content-Type"] = "application/xml; charset=utf-8"
   end
   
+  def show
+    @fic = @story.fics.new
+  end
+  
+  def create_fic
+    @fic = @story.fics.new(params[:fic])
+    @fic.user = current_user
+    if (@fic.save)
+      flash[:notice] = "Your fic has been added to the story."
+      redirect_to :action => 'show', :id => @story.id, :anchor => @fic.id and return
+    else
+      @fic.destroy
+      flash[:error] = "There was a problem adding your fic."
+      render :action => 'show' and return
+    end
+  end
+
+private
+
+  def find_story_and_fics
+    return(redirect_to(stories_url)) unless params[:id]
+    @story = Story.find(params[:id])
+    @fics = @story.fics
+    @next_collab = Story.next_collaborator_for(@story)
+  end
 end
