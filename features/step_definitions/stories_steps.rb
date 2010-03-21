@@ -19,7 +19,7 @@ Given /^there are stories in existence$/ do
 end
 
 Given /^there are no stories in existence$/ do
-  @story.destroy
+  Story.destroy_all
 end
 
 Then /^I should see all of the stories$/ do
@@ -43,8 +43,8 @@ end
 Given /^I fill in the form with valid story data$/ do
   And %Q{I fill in "Title" with "The tale of the flopsy bunny"}
   And %Q{I fill in "Description" with "A story about a cute little bunny rabbit."}
-  And %Q{I fill in "Length of each story section" with "Catfood"}
-  And %Q{I check "Prevent contributors from going over this limit?"}
+  And %Q{I fill in "Maximum length in words of each story section" with "Catfood"}
+  And %Q{I check "Prevent collaborators from going over this limit?"}
 end
 
 When /^I fill in 250 words of lorem ipsum for "([^\"]*)"$/ do |arg1|
