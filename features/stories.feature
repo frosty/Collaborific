@@ -17,8 +17,8 @@ Feature: Writing stories
     And I fill in the following:
       | Title                        | The tale of the flopsy bunny              |
       | Description                  | A story about a cute little bunny rabbit. |
-      | Length of each story section | 200                                       |
-    And I check "Prevent contributors from going over this limit?"
+      | Maximum length in words of each story section | 200                                       |
+    And I check "Prevent collaborators from going over this limit?"
     And I press "Start story"
     Then I should see "You've started your story! Now it's time to add the first fic."
     And I should see "The tale of the flopsy bunny"
@@ -27,14 +27,14 @@ Feature: Writing stories
   Scenario: Begin a story
     Given I am on the new story page
     And I fill in the form with valid story data
-    And I fill in "Catfood" for "Length of each story section"
+    And I fill in "Catfood" for "Maximum length in words of each story section"
     And I press "Start story"
     Then I should see "Fic length is not a number"
     
   Scenario: Begin a story
     Given I am on the new story page
     And I fill in the form with valid story data
-    And I fill in "-1341" for "Length of each story section"
+    And I fill in "-1341" for "Maximum length in words of each story section"
     And I press "Start story"
     Then I should see "Fic length must be greater than 1"
   
@@ -52,6 +52,8 @@ Feature: Writing stories
     Given there are stories in existence
     When I go to the stories page
     Then I should see all of the stories
+    
+  Scenario: No stories
     Given there are no stories in existence
     When I go to the stories page
     Then I should see "No stories added yet..."
@@ -61,7 +63,7 @@ Feature: Writing stories
     Given there are stories in existence
     When I go to the stories page
     Then I should see "Latest stories"
-    And I should see "Ode to beans" within "#stories_list"
+    And I should see "Ode to beans" within "#story_list"
     And I follow "Ode to beans"
     Then I should be on the story page
 
@@ -73,9 +75,9 @@ Feature: Writing stories
   Scenario: View my story
     Given there are stories in existence
     And I am on my user page
-    Then I should see "Ode to beans" within "#stories_list"
+    Then I should see "Ode to beans" within "#story_list"
     
   Scenario: Invite a user
     Given there are stories in existence
     And I am on the story page
-    Then I should see "Invite a collaborator" within "#sidebar"
+    Then I should see "Invite collaborators" within "#sidebar"

@@ -16,7 +16,7 @@ class StoriesController < ApplicationController
     if !@story.save
       render :action => 'new'
     else
-      @story.collaborators.create({:user => current_user})
+      #@story.collaborators.create({:user => current_user})
     
       if @story.save
         flash[:notice] = "You've started your story! Now it's time to add the first fic."
