@@ -2,7 +2,7 @@
 
   %h2.story_title= @story.title
   %span.story_owner= "Started by #{@story.owner.login}" if @story.owner
-  %p.story_description= @story.description
+  %p.story_description= wrap_in_paragraphs(@story.description)
   
   %h3= "The next collaborator on this story is #{@next_collab.login}"
   
