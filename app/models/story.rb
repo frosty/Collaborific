@@ -8,7 +8,10 @@ class Story < ActiveRecord::Base
   validates_presence_of :owner
   validates_presence_of :title
   validates_presence_of :description
-  validates_numericality_of :fic_length, :greater_than => 1, :only_integer => true
+  validates_numericality_of :fic_length, :greater_than => 1, :only_integer => true, :allow_nil => true
+  
+  before_create {|story| story.fic_length_enforce = false if  story.fic_length_enforce.nil?}
+  
   
   def owner?(user)
     owner == user
