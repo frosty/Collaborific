@@ -6,6 +6,11 @@ class StoryTest < ActiveSupport::TestCase
     assert true
   end
   
+  def test_should_not_save_story_without_title
+    story = Story.new
+    assert !story.save, "Saved a story without a title."
+  end
+  
   should_validate_presence_of :owner
   should_validate_presence_of :title
   should_validate_presence_of :description

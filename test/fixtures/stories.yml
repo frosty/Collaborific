@@ -4,7 +4,7 @@ one:
   title: MyString
   description: MyText
   owner: 1
-  fic_length: 1
+  fic_length: nil
   fic_length_enforce: false
 
 two:
