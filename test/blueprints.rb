@@ -25,3 +25,8 @@ User.blueprint do
   password  "wibble"
   password_confirmation "wibble"
 end
+
+Invitation.blueprint do
+  story
+  user
+end

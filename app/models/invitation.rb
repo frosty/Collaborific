@@ -3,7 +3,7 @@ class Invitation < ActiveRecord::Base
   belongs_to :story
   belongs_to :user
 
-  validates_presence_of :token
+  validates_presence_of :token, :message => "can't be blank"
   validates_uniqueness_of :token
   #validates_uniqueness_of :user, :scope => "story_id"
   # validate_on_create :valid_user?
