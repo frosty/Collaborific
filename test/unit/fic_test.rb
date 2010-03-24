@@ -6,14 +6,14 @@ class FicTest < ActiveSupport::TestCase
   should_belong_to :user
   should_belong_to :story
   
-  test "should validate presence of content" do
+  def test_should_validate_presence_of_content
     assert_raise (ActiveRecord::RecordInvalid) {
       @fic = Fic.make(:content => nil)
     }
     #assert_match(/must be shorter than \d+ words./, @fic.errors.on(:content))
   end
   
-  test "should validate content length when enforce is enabled" do
+  def test_should_validate_content_length_when_enforce_is_enabled
     assert_raise (ActiveRecord::RecordInvalid) {
       fic = Fic.make(:content => "Three words long", 
                      :story => Story.make(:fic_length => 2, 
@@ -22,7 +22,7 @@ class FicTest < ActiveSupport::TestCase
     #assert_equal("must be shorter than 2 words.", @fic.errors.on(:content))
   end
   
-  test "should not validate content length when enforce is disabled" do
+  def test_should_not_validate_content_length_when_enforce_is_disabled
     assert_nothing_raised (ActiveRecord::RecordInvalid) {
       @fic = Fic.make(:content => "Three words long", 
                      :story => Story.make(:fic_length => 2, 
@@ -31,8 +31,9 @@ class FicTest < ActiveSupport::TestCase
     assert @fic.save
   end
   
-  test "should save a valid fic" do
+  def test_should_create_a_fic
     fic = Fic.make
     assert fic.save
+    assert !fic.new_record?
   end
 end

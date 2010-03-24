@@ -5,6 +5,9 @@ class UserTest < ActiveSupport::TestCase
   # Then, you can remove it from this and the functional test.
   include AuthenticatedTestHelper
   fixtures :users
+  
+  should_have_many :fics, :collaborators
+  should_have_many :stories, :through => :collaborators
 
   def test_should_create_user
     assert_difference 'User.count' do
