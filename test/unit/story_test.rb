@@ -31,11 +31,11 @@ class StoryTest < ActiveSupport::TestCase
     assert story.save
   end
   
-  def test_fic_length_enforce_should_be_false_if_nil
-    story = Story.make(:fic_length_enforce => nil)
-    story.save
-    assert_equal story.fic_length_enforce, false
-  end
+  # def test_fic_length_enforce_should_be_false_if_nil
+  #   story = Story.make(:fic_length_enforce => nil)
+  #   story.save
+  #   assert_equal story.fic_length_enforce, false
+  # end
   
   def test_should_create_a_story
     story = Story.make
@@ -43,9 +43,9 @@ class StoryTest < ActiveSupport::TestCase
     assert !story.new_record?
   end
 
-  def test_story_owner_should_become_collaborator
-    
-  end
+  # def test_story_owner_should_become_collaborator
+  #   
+  # end
 
 
 end
