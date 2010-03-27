@@ -15,8 +15,8 @@ Feature: Writing stories
   Scenario: Begin a story
     Given I am on the new story page
     And I fill in the following:
-      | Title                        | The tale of the flopsy bunny              |
-      | Description                  | A story about a cute little bunny rabbit. |
+      | Title                                         | The tale of the flopsy bunny              |
+      | Description                                   | A story about a cute little bunny rabbit. |
       | Maximum length in words of each story section | 200                                       |
     And I check "Prevent collaborators from going over this limit?"
     And I press "Start story"
