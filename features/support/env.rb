@@ -13,7 +13,9 @@ require 'cucumber/rails/active_record'
 require 'cucumber/web/tableish'
 
 require 'webrat'
-require 'webrat/core/matchers'
+require 'webrat/core/matchers'  
+
+require 'ruby-debug'
 
 Webrat.configure do |config|
   config.mode = :rails
