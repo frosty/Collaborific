@@ -15,7 +15,7 @@ class StoryTest < ActiveSupport::TestCase
   def test_fic_length_should_be_an_integer
     assert_raises (ActiveRecord::RecordInvalid) {
       story = Story.make(:fic_length => 2.0)
-      assert_equals story.errors.on(:fic_length), "Fic length is not a number"
+      assert_equals story.errors.on(:fic_length), "Fic length is not an integer"
     }
   end
   
