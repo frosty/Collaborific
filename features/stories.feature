@@ -81,3 +81,12 @@ Feature: Writing stories
     Given there are stories in existence
     And I am on the story page
     Then I should see "Invite collaborators" within "#sidebar"
+
+  Scenario: RSS feed button available
+    Given I am on the story page
+    Then I should see the RSS feed link
+
+  Scenario: RSS feed is valid
+    Given I am on the story page
+    And I follow the RSS feed link
+    Then the RSS feed link should be a valid feed

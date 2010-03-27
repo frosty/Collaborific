@@ -34,6 +34,9 @@ module NavigationHelpers
       
     when /the new fic page/
       new_story_fic_path(@story)
+      
+    when /the RSS feed link/
+      stories_rss_path(@story)
     
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

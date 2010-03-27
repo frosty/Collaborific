@@ -27,7 +27,7 @@
           = submit_tag 'Add Fic', :class => 'submit'
 
 #sidebar{:class => "span-6 last"}
-  %a{:href => stories_rss_path(@story)}
+  %a{:href => stories_rss_path(@story), :id => stories_rss_path(@story)}
     %img{ :src => "/images/feed_icon.png", :alt => "Subscribe", :title => "Subscribe to this story"}
 
   %h4 Collaborators
