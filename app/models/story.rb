@@ -13,9 +13,6 @@ class Story < ActiveRecord::Base
   before_create {|story| story.fic_length_enforce = false if story.fic_length_enforce.nil?}
   after_save {|story| story.collaborators.create(:user => story.owner, :story => story)}
   
-  # owner should be set already - other attributes are choice of user
-  # attr_protected :owner  # this is currently failing tests:
-  
   #   1) Failure:
   # test_fic_length_enforce_should_be_false_if_nil(StoryTest) [/test/unit/story_test.rb:41]:
   # <nil> expected but was
