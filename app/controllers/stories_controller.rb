@@ -10,17 +10,19 @@ class StoriesController < ApplicationController
   end
   
   def create
-    @story = Story.new(params[:story])
-    
-    @story.owner = current_user
-    if @story.save
-      flash[:notice] = "You've started your story! Now it's time to add the first fic."
-      redirect_to(@story)
-    else
-      flash[:error] = "There was a problem starting your story."
-      # Rollback the initial save
-      @story.destroy unless @story.new_record?
+    if !@story.save 	
       render :action => 'new'
+    else
+      # @story.collaborators.create({:user => current_user})
+      if @story.save
+        flash[:notice] = "You've started your story! Now it's time to add the first fic."
+        redirect_to(@story)
+      else
+        flash[:error] = "There was a problem starting your story."
+        # Rollback the initial save
+        @story.destroy unless @story.new_record?
+        render :action => 'new'
+      end
     end
   end
   

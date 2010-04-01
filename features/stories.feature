@@ -18,6 +18,7 @@ Feature: Writing stories
       | Title                                         | The tale of the flopsy bunny              |
       | Description                                   | A story about a cute little bunny rabbit. |
       | Maximum length in words of each story section | 200                                       |
+
     And I check "Prevent collaborators from going over this limit?"
     And I press "Start story"
     Then I should see "You've started your story! Now it's time to add the first fic."
