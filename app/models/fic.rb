@@ -7,7 +7,7 @@ class Fic < ActiveRecord::Base
   validate :valid_content_length?, :on => [:create, :save]
                           
   # only content should be changeable by the user
-  attr_accessible :content           
+  # attr_accessible :content           
   
   def rss_content
     content + "<br/><br/>Written by: #{user.login}"

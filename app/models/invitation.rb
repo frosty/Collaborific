@@ -9,7 +9,7 @@ class Invitation < ActiveRecord::Base
   # validate_on_create :valid_user?        
                        
   # prevent token crafting
-  attr_protected :token
+  # attr_protected :token
 
   def self.invitations_for_story(story)
     find(:all, :conditions => {:story_id => story.id}) || nil
