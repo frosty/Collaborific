@@ -13,6 +13,9 @@ class Story < ActiveRecord::Base
   before_create {|story| story.fic_length_enforce = false if  story.fic_length_enforce.nil?}
   after_save {|story| story.collaborators.create(:user => story.owner, :story => story)}
   
+  
+  attr_accessible :title, :description, :owner, :fic_length, :fic_length_enforce
+  
   def owner?(user)
     owner == user
   end

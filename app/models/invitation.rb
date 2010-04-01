@@ -6,7 +6,10 @@ class Invitation < ActiveRecord::Base
   validates_presence_of :token, :message => "can't be blank"
   validates_uniqueness_of :token
   #validates_uniqueness_of :user, :scope => "story_id"
-  # validate_on_create :valid_user?
+  # validate_on_create :valid_user?        
+                       
+  # prevent token crafting
+  attr_protected :token
 
   def self.invitations_for_story(story)
     find(:all, :conditions => {:story_id => story.id}) || nil

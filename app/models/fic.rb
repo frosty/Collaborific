@@ -5,6 +5,9 @@ class Fic < ActiveRecord::Base
   validates_presence_of :content, :message => "is blank", :on => :create
  # validates_length_of :content, :maximum => story.fic_length, :tokenizer =>  lambda {|str| str.scan(/\w+/)}, :if => :enforce_fic_length?
   validate :valid_content_length?, :on => [:create, :save]
+                          
+  # only content should be changeable by the user
+  attr_accessible :content           
   
   def rss_content
     content + "<br/><br/>Written by: #{user.login}"
