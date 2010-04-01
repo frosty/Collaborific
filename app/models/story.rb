@@ -13,16 +13,6 @@ class Story < ActiveRecord::Base
   before_create {|story| story.fic_length_enforce = false if story.fic_length_enforce.nil?}
   after_save {|story| story.collaborators.create(:user => story.owner, :story => story)}
   
-  #   1) Failure:
-  # test_fic_length_enforce_should_be_false_if_nil(StoryTest) [/test/unit/story_test.rb:41]:
-  # <nil> expected but was
-  # <false>.
-  # 
-  #   2) Failure:
-  # test_next_collaborator_progression(StoryTest) [/test/unit/story_test.rb:84]:
-  # <1> expected but was
-  # <0>.       
-  
   def owner?(user)
     owner == user
   end
