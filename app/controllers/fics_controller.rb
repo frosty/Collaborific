@@ -13,7 +13,7 @@ class FicsController < ApplicationController
                                                               @story.fic_length
       flash[:error] = "Your fic was too long for this story. Fics for this story must be shorter than #{@story.fic_length} words."
       render :action => 'new'
-    elsif (@fic.save)
+    elsif (@fic.save && current_user)
       flash[:notice] = "Your fic has been added to the story."
       redirect_to story_url(@story)
     else

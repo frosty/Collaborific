@@ -10,7 +10,9 @@ class StoriesController < ApplicationController
   end
   
   def create
-    if @story.save
+    @story = Story.create params[:story]
+    @story.owner = current_user
+    if (@story.save && current_user)
       flash[:notice] = "You've started your story! Now it's time to add the first fic."
       redirect_to(@story)
     else
@@ -46,7 +48,7 @@ class StoriesController < ApplicationController
   def create_fic
     @fic = @story.fics.new(params[:fic])
     @fic.user = current_user
-    if (@fic.save)
+    if (@fic.save && current_user)
       flash[:notice] = "Your fic has been added to the story."
       redirect_to :action => 'show', :id => @story.id, :anchor => @fic.id and return
     else
