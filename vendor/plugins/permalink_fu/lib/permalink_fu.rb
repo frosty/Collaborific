@@ -1,79 +1,57 @@
-begin
-  require 'iconv'
-rescue Object
-  puts "no iconv, you might want to look into it."
-end
-
+require 'yaml'
 require 'digest/sha1'
-module PermalinkFu
-  class << self
-    attr_accessor :translation_to
-    attr_accessor :translation_from
 
-    # This method does the actual permalink escaping.
-    def escape(string)
-      result = ((translation_to && translation_from) ? Iconv.iconv(translation_to, translation_from, string) : string).to_s
-      result.gsub!(/[^\x00-\x7F]+/, '') # Remove anything non-ASCII entirely (e.g. diacritics).
-      result.gsub!(/[^\w_ \-]+/i,   '') # Remove unwanted chars.
-      result.gsub!(/[ \-]+/i,      '-') # No more than one of the separator in a row.
-      result.gsub!(/^\-|\-$/i,      '') # Remove leading/trailing separator.
-      result.downcase!
-      result.size.zero? ? random_permalink(string) : result
-    rescue
-      random_permalink(string)
+module PermalinkFu
+  def has_permalink(attr_names = [], permalink_field = nil, options = {})
+    if permalink_field.is_a?(Hash)
+      options = permalink_field
+      permalink_field = nil
+    end
+    ClassMethods.setup_permalink_fu_on self do
+      self.permalink_attributes = Array(attr_names)
+      self.permalink_field      = (permalink_field || 'permalink').to_s
+      self.permalink_options    = {:unique => true}.update(options)
     end
     
-    def random_permalink(seed = nil)
-      Digest::SHA1.hexdigest("#{seed}#{Time.now.to_s.split(//).sort_by {rand}}")
-    end
+    include InstanceMethods
   end
 
-  # This is the plugin method available on all ActiveRecord models.
-  module PluginMethods
-    # Specifies the given field(s) as a permalink, meaning it is passed through PermalinkFu.escape and set to the permalink_field.  This
-    # is done
-    #
-    #   class Foo < ActiveRecord::Base
-    #     # stores permalink form of #title to the #permalink attribute
-    #     has_permalink :title
-    #   
-    #     # stores a permalink form of "#{category}-#{title}" to the #permalink attribute
-    #   
-    #     has_permalink [:category, :title]
-    #   
-    #     # stores permalink form of #title to the #category_permalink attribute
-    #     has_permalink [:category, :title], :category_permalink
-    #
-    #     # add a scope
-    #     has_permalink :title, :scope => :blog_id
-    #
-    #     # add a scope and specify the permalink field name
-    #     has_permalink :title, :slug, :scope => :blog_id
-    #
-    #     # do not bother checking for a unique scope
-    #     has_permalink :title, :unique => false
-    #
-    #     # update the permalink every time the attribute(s) change
-    #     # without _changed? methods (old rails version) this will rewrite the permalink every time
-    #     has_permalink :title, :update => true
-    #
-    #   end
-    #
-    def has_permalink(attr_names = [], permalink_field = nil, options = {})
-      if permalink_field.is_a?(Hash)
-        options = permalink_field
-        permalink_field = nil
-      end
-      ClassMethods.setup_permalink_fu_on self do
-        self.permalink_attributes = Array(attr_names)
-        self.permalink_field      = (permalink_field || 'permalink').to_s
-        self.permalink_options    = {:unique => true}.update(options)
-      end
+  class << self
+    # This method does the actual permalink escaping.
+    def escape(str)
+      s = ClassMethods.decode(str)#.force_encoding("UTF-8")
+      s.gsub!(/[^\x00-\x7F]+/, '') # Remove anything non-ASCII entirely (e.g. diacritics).
+      s.gsub!(/[^\w_ \-]+/i,   '') # Remove unwanted chars.
+      s.gsub!(/[ \-]+/i,      '-') # No more than one of the separator in a row.
+      s.gsub!(/^\-|\-$/i,      '') # Remove leading/trailing separator.
+      s.downcase!
+      s.size == 0 ? ClassMethods.random_permalink(str) : s
     end
   end
 
   # Contains class methods for ActiveRecord models that have permalinks
   module ClassMethods
+    # Contains Unicode codepoints, loading as needed from YAML files
+    CODEPOINTS = Hash.new { |h, k|
+      h[k] = YAML::load_file(File.join(File.dirname(__FILE__), "data", "#{k}.yml"))
+    }
+    
+    class << self
+      def decode(string)
+        string.gsub(/[^\x00-\x7f]/u) do |codepoint|
+          begin
+            CODEPOINTS["x%02x" % (codepoint.unpack("U")[0] >> 8)][codepoint.unpack("U")[0] & 255]
+          rescue
+            "_"
+          end
+        end
+      end
+      
+      def random_permalink(seed = nil)
+        Digest::SHA1.hexdigest("#{seed}#{Time.now.to_s.split(//).sort_by {rand}}")
+      end
+    end
+  
     def self.setup_permalink_fu_on(base)
       base.extend self
       class << base
@@ -81,7 +59,6 @@ module PermalinkFu
         attr_accessor :permalink_attributes
         attr_accessor :permalink_field
       end
-      base.send :include, InstanceMethods
 
       yield
 
@@ -97,8 +74,12 @@ module PermalinkFu
     end
 
     def define_attribute_methods_with_permalinks
-      if value = define_attribute_methods_without_permalinks
-        evaluate_attribute_method permalink_field, "def #{self.permalink_field}=(new_value);write_attribute(:#{self.permalink_field}, new_value.blank? ? '' : PermalinkFu.escape(new_value));end", "#{self.permalink_field}="
+      if (value = define_attribute_methods_without_permalinks) && self.permalink_field
+        class_eval <<-EOV
+          def #{self.permalink_field}=(new_value);
+            write_attribute(:#{self.permalink_field}, new_value.blank? ? '' : PermalinkFu.escape(new_value));
+          end
+        EOV
       end
       value
     end
@@ -153,7 +134,7 @@ module PermalinkFu
 
     def create_permalink_for(attr_names)
       str = attr_names.collect { |attr_name| send(attr_name).to_s } * " "
-      str.blank? ? PermalinkFu.random_permalink : str
+      str.blank? ? PermalinkFu::ClassMethods.random_permalink : str
     end
 
   private
@@ -191,7 +172,5 @@ module PermalinkFu
   end
 end
 
-if Object.const_defined?(:Iconv)
-  PermalinkFu.translation_to   = 'ascii//translit//IGNORE'
-  PermalinkFu.translation_from = 'utf-8'
-end
+# Extend ActiveRecord functionality
+ActiveRecord::Base.extend PermalinkFu
