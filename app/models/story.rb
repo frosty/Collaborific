@@ -4,6 +4,7 @@ class Story < ActiveRecord::Base
   belongs_to :owner, :class_name => "User", :foreign_key => "owner"
   has_many :collaborators
   has_many :users, :through => :collaborators
+  has_permalink :title
   
   validates_presence_of :owner
   validates_presence_of :title
@@ -36,5 +37,9 @@ class Story < ActiveRecord::Base
         
        User.find_by_id(next_collab_id)
     end
+  end
+  
+  def to_param
+    permalink
   end
 end

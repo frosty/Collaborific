@@ -1,8 +1,9 @@
 %ul{:id => "story_list"}
   -for story in @stories
     %li
-      %h4.story_title= link_to story.title, story
+      %h4.story_title= link_to "#{story.title}", {:controller => 'stories', :action => 'show', :permalink => story.permalink}
       %span.story_owner= "Started by #{story.owner.login}" if story.owner
       %p.story_description= story.description
   -if @stories.empty?
     %li No stories added yet...
+    

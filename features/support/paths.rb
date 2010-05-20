@@ -30,7 +30,7 @@ module NavigationHelpers
       stories_url
     
     when /the story page/
-      story_path @story.id
+      story_path @story.permalink
       
     when /the new fic page/
       new_story_fic_path(@story)
