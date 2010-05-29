@@ -5,9 +5,10 @@ Feature: Writing fics
   
   Background:
     Given a logged in user
-    Given there are stories in existence
-    Given I am on the story page
+    And there are stories in existence
+    And I am on the story page
 
+    
  # Fic scenarios need rewriting, as turn-taking completely alters how this works.
   # Scenario: Add a fic
   #   Then I should see "Add fic"

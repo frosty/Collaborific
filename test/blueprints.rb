@@ -6,7 +6,7 @@ Sham.name { Faker::Internet.user_name }
 Sham.email { Faker::Internet.email }
     
 Story.blueprint do
-  title               "An ode to beans"
+  title               "Ode to Beans"
   description         "A story about beans."
   fic_length          100
   fic_length_enforce  false

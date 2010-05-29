@@ -16,7 +16,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.new_story '/story/add', :controller => 'stories', :action => 'new'
   
-  map.connect 'stories/:permalink', :controller => 'stories', :action => 'show'
+  map.connect '/stories/:permalink', :controller => 'stories', :action => 'show'
   
   map.resources :stories  do |story|
     story.resources :fics

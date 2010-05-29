@@ -6,13 +6,13 @@ Feature: Writing stories
   Background:
     Given a logged in user
   
-  Scenario: Begin a story
+  Scenario: Get to the start a new story page
     When I go to the home page
     And I follow "Start a new story"
     Then I should be on the new story page
   
   # This scenario should probably actually check the values stored within the story, to see if they were stored correctly.
-  Scenario: Begin a story
+  Scenario: Start a story
     Given I am on the new story page
     And I fill in the following:
       | Title                                         | The tale of the flopsy bunny              |
@@ -25,21 +25,21 @@ Feature: Writing stories
     And I should see "The tale of the flopsy bunny"
     And I should see "A story about a cute little bunny rabbit."
     
-  Scenario: Begin a story
+  Scenario: Start a story with an invalid fic length
     Given I am on the new story page
     And I fill in the form with valid story data
     And I fill in "Catfood" for "Maximum length in words of each story section"
     And I press "Start story"
     Then I should see "Fic length is not a number"
     
-  Scenario: Begin a story
+  Scenario: Start a story with a negative fic length
     Given I am on the new story page
     And I fill in the form with valid story data
     And I fill in "-1341" for "Maximum length in words of each story section"
     And I press "Start story"
     Then I should see "Fic length must be greater than 1"
 
-  Scenario: Begin a story
+  Scenario: Start a story and view the permalink
     Given I am on the new story page
     And I fill in the form with valid story data
     And I press "Start story"
@@ -70,7 +70,7 @@ Feature: Writing stories
     Given there are stories in existence
     When I go to the stories page
     Then I should see "Latest stories"
-    And I should see "Ode to beans" within "#story_list"
+    And I should see the story's title within "#story_list"
     And I follow "Ode to beans"
     Then I should be on the story page
 
@@ -82,7 +82,7 @@ Feature: Writing stories
   Scenario: View my story
     Given there are stories in existence
     And I am on my user page
-    Then I should see "Ode to beans" within "#story_list"
+    Then I should see the story's title within "#story_list"
     
   Scenario: Invite a user
     Given there are stories in existence
