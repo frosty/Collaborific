@@ -12,14 +12,11 @@ class Story < ActiveRecord::Base
   validates_numericality_of :fic_length, :greater_than => 1, :only_integer => true, :allow_nil => true
   
   before_create {|story| story.fic_length_enforce = false if story.fic_length_enforce.nil?}
-<<<<<<< HEAD
-  after_save {|story| story.collaborators.create(:user => story.owner, :story => story)}
-=======
+
   after_save do |story| 
     story.collaborators.create(:user => story.owner, :story => story) if story.collaborators.empty?
   end
->>>>>>> 09cc1072eb5905792a65c3201eb6b875f0701e6e
-  
+
   def owner?(user)
     owner == user
   end
