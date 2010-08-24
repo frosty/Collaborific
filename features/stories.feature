@@ -38,7 +38,13 @@ Feature: Writing stories
     And I fill in "-1341" for "Maximum length in words of each story section"
     And I press "Start story"
     Then I should see "Fic length must be greater than 1"
-  
+
+  Scenario: Begin a story
+    Given I am on the new story page
+    And I fill in the form with valid story data
+    And I press "Start story"
+    Then the page URL should be a permalink to the story title
+
   Scenario: View a user's stories
     Given I have started a story with the following data:
       | title              | The tale of the flopsy bunny              |

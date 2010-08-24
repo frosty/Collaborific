@@ -35,7 +35,7 @@ class StoriesController < ApplicationController
   end
 
   def rss
-    @story = Story.find(params[:id], :order => "id DESC", :limit => 10)
+    @story = Story.find_by_permalink(params[:permalink], :order => "id DESC", :limit => 10)
     @fics = @story.fics
     render :layout => false
     response.headers["Content-Type"] = "application/xml; charset=utf-8"
@@ -61,8 +61,8 @@ class StoriesController < ApplicationController
 private
 
   def find_story_and_fics
-    return(redirect_to(stories_url)) unless params[:id]
-    @story = Story.find(params[:id])
+    return(redirect_to(stories_url)) unless params[:permalink]
+    @story = Story.find_by_permalink(params[:permalink])
     @fics = @story.fics
     @next_collab = Story.next_collaborator_for(@story)
   end

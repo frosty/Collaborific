@@ -7,12 +7,16 @@ ActionController::Routing::Routes.draw do |map|
   map.user_page '/user/:login', :controller => 'users', :action => 'show'
   
   map.user_stories '/user/:id/stories', :controller => 'stories', :action => 'index'
-  map.stories_rss '/stories/:id/rss/', :controller => 'stories', :action => 'rss'
+  map.stories_rss '/stories/:permalink/rss/', :controller => 'stories', :action => 'rss'
   
-  map.add_fic '/story/:id/add', :controller => 'stories', :action => 'create_fic'
+  map.add_fic '/story/:permalink/add', :controller => 'stories', :action => 'create_fic'
   
   map.connect '/invite/add', :controller => 'invitations', :action => 'create'
   map.process_invitation '/invite/:token', :controller => 'invitations', :action => 'process_invite'
+  
+  map.new_story '/story/add', :controller => 'stories', :action => 'new'
+  
+  map.connect 'stories/:permalink', :controller => 'stories', :action => 'show'
   
   map.resources :stories  do |story|
     story.resources :fics

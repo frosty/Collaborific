@@ -5,7 +5,11 @@ class Fic < ActiveRecord::Base
   validates_presence_of :content, :message => "is blank", :on => :create
  # validates_length_of :content, :maximum => story.fic_length, :tokenizer =>  lambda {|str| str.scan(/\w+/)}, :if => :enforce_fic_length?
   validate :valid_content_length?, :on => [:create, :save]
+<<<<<<< HEAD
                                 
+=======
+
+>>>>>>> 09cc1072eb5905792a65c3201eb6b875f0701e6e
   def rss_content
     content + "<br/><br/>Written by: #{user.login}"
   end

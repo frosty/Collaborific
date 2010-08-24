@@ -15,16 +15,15 @@ Then /^the RSS feed link should be a valid feed$/ do
   #go to http://validator.w3.org/feed/check.cgi and validate this feed      
   url = "http://validator.w3.org/feed/check.cgi"
                    
-  click_link(stories_rss_path(@story))
+  click_link(stories_rss_path(@story.permalink))
 
   feedresponse = Net::HTTP.post_form(URI.parse(url),
-                                {'rawdata' =>  response.body})
-  
-  STDERR.puts feedresponse.body.to_s                              
+                                {'rawdata' =>  response.body})                            
   
   if feedresponse.body.to_s.scan("This is a valid RSS feed").count > 0
     assert true
   else
+    STDERR.puts feedresponse.body.to_s  
     assert false
   end
 end

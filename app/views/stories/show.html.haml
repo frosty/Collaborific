@@ -12,7 +12,8 @@
   
   %div{:class => 'span-16 last'}
     - if (@story.users.include? current_user) and (@next_collab == current_user) 
-      - form_for [@story, @fic], :url => {:action => :create_fic, :controller => 'stories'} do |f|
+      - form_for [@story, @fic], :url => {:action => :create_fic, :controller => 'stories', :permalink => @story.permalink} do |f|
+      
         %fieldset
           %a{:name => 'new_fic_form'}
           = error_messages_for :fic 

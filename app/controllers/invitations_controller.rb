@@ -14,7 +14,7 @@ class InvitationsController < ApplicationController
 
     @invite = Invitation.new(:user => @user, :story => @story)
     
-    success = current_user @invite && @invite.save
+    success = current_user && @invite.save
     if success && @invite.errors.empty?
       InviteMailer.deliver_invite_email(@invite)
       # should check for success of email send.

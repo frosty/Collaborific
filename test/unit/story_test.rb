@@ -55,6 +55,17 @@ class StoryTest < ActiveSupport::TestCase
     assert_equal story.collaborators.first.user, owner
   end
   
+  def test_saving_story_should_not_increase_collaborator_count
+    owner = User.make
+    owner.save
+    story = Story.make(:owner => owner)
+    story.save
+    assert_equal 1, story.collaborators.count
+    assert_no_difference 'story.collaborators.count' do
+      story.save
+    end
+  end
+  
   def test_owner?
     owner = User.make
     owner.save
