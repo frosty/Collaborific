@@ -10,6 +10,7 @@ ActionController::Routing::Routes.draw do |map|
   map.stories_rss '/stories/:permalink/rss/', :controller => 'stories', :action => 'rss'
   
   map.add_fic '/story/:permalink/add', :controller => 'stories', :action => 'create_fic'
+  map.leave_story '/story/:permalink/leave', :controller => 'stories', :action => 'leave'   
   
   map.connect '/invite/add', :controller => 'invitations', :action => 'create'
   map.process_invitation '/invite/:token', :controller => 'invitations', :action => 'process_invite'

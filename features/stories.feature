@@ -87,4 +87,18 @@ Feature: Writing stories
   Scenario: Invite a user
     Given there are stories in existence
     And I am on the story page
-    Then I should see "Invite collaborators" within "#sidebar"
+    Then I should see "Invite collaborators" within "#sidebar"       
+
+  Scenario: Leave a story          
+	Given there is a story in existence which I don't own
+    And I am on the story page
+    And I am a collaborator on the story
+    Then I should see "Leave story" within "#sidebar"
+
+  Scenario: Leave a story          
+	Given there is a story in existence which I don't own
+    And I am on the story page
+    And I am a collaborator on the story
+    And I follow "Leave story"
+	Then I should see "You have left the story"
+	And I should not be a collaborator on the story

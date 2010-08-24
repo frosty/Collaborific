@@ -23,6 +23,14 @@ class StoriesController < ApplicationController
     end  
   end
   
+  def leave
+    @story = Story.find_by_permalink(params[:permalink])
+    @story.users.delete(current_user)
+    flash[:notice] = "You have left the story"
+    @story.save
+    redirect_to(@story)
+  end
+  
   def index
     if params[:id]
       @user = User.find(params[:id])

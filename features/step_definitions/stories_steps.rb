@@ -1,3 +1,5 @@
+require File.expand_path(File.dirname(__FILE__) + "/../../test/blueprints")
+
 Given /^I have started a story with the following data:$/ do |table|
   @story = @user.stories.new(table.rows_hash)
   @story.owner = @user
@@ -16,6 +18,15 @@ Given /^there are stories in existence$/ do
   @story.fics.create!({
     :content => "And so it came to pass that the dancing festival of the musical fruit did burst forth one Summer's day with rapture and joy.",
     :user => @user})
+end
+               
+Given /^there is a story in existence which I don't own$/ do
+  @story = Story.make(:owner => User.make)   
+  @story.collaborators.create(:user => @user)
+  @story.fics.create!({
+    :content => "And so it came to pass that the dancing festival of the musical fruit did burst forth one Summer's day with rapture and joy.",
+    :user => @user})  
+  @story.save
 end
 
 Given /^there are no stories in existence$/ do
@@ -53,4 +64,28 @@ end
 
 Then /^the page URL should be a permalink to the story title$/ do
   request.request_uri.should include("the-tale-of-the-flopsy-bunny")
+end      
+
+And /^I am a collaborator on the story$/ do
+  if @story.users.include? @user
+    assert true
+  else
+    assert false
+  end
+end
+
+Then /^I should not be a collaborator on the story$/ do
+  if @story.users.include? @user
+    assert false
+  else
+    assert true
+  end
+end
+
+And /^I am not the owner of the story$/ do 
+  if @story.owner.id == @user.id
+    assert false
+  else
+    assert true
+  end
 end

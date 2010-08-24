@@ -55,4 +55,7 @@
       = label_tag 'Username'
       = text_field_tag 'login'
       = hidden_field_tag 'story', @story.id
-      = submit_tag 'Invite'
+      = submit_tag 'Invite'      
+
+  - if @story.users.include? current_user and !@story.owner? current_user
+    =link_to 'Leave story', leave_story_path(@story)
