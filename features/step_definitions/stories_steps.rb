@@ -7,14 +7,8 @@ Given /^I have started a story with the following data:$/ do |table|
 end
 
 Given /^there are stories in existence$/ do
-  @story = Story.create!({
-                  :title => "Ode to beans",
-                  :description => "A testament to the musical fruit",
-                  :fic_length => 200,
-                  :fic_length_enforce => true,
-                  :owner => @user
-  })
-  @story.save
+  @story = Story.make(:owner => @user)
+  
   @story.fics.create!({
     :content => "And so it came to pass that the dancing festival of the musical fruit did burst forth one Summer's day with rapture and joy.",
     :user => @user})
@@ -40,6 +34,10 @@ Then /^I should see all of the stories$/ do
   else
     assert false
   end
+end
+
+Then /^I should see the story's title within "([^\"]*)"$/ do |element|
+  Then %Q{I should see "#{@story.title}" within "#{element}"}
 end
 
 Then /^I should see all of this story's fics$/ do
