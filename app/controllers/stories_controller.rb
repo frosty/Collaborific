@@ -57,14 +57,15 @@ class StoriesController < ApplicationController
     @fic = @story.fics.new(params[:fic])
     @fic.user = current_user
     if (@fic.save && current_user)
-      flash[:notice] = "Your fic has been added to the story."
+      notify_next_collaborator
+      flash[:notice] = "Your fic has been added to the story. The next collaborator has been notified" 
       redirect_to :action => 'show', :id => @story.id, :anchor => @fic.id and return
     else
       @fic.destroy
       flash[:error] = "There was a problem adding your fic."
       render :action => 'show' and return
     end
-  end
+  end  
 
 private
 
@@ -73,5 +74,9 @@ private
     @story = Story.find_by_permalink(params[:permalink])
     @fics = @story.fics
     @next_collab = Story.next_collaborator_for(@story)
+  end      
+  
+  def notify_next_collaborator
+    NotifyNextMailer.deliver_notify_next_email(@story)
   end
 end

@@ -102,3 +102,10 @@ Feature: Writing stories
     And I follow "Leave story"
 	Then I should see "You have left the story"
 	And I should not be a collaborator on the story
+	
+  Scenario: Notify the next collaborator that their turn is due
+    Given there are stories in existence
+    And I am on the story page 
+	And I fill in "This is my fic." for "fic_content"
+    And I press "Add Fic"
+    Then I should see "The next collaborator has been notified"
