@@ -4,7 +4,7 @@ xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do
  xml.channel do
 
    xml.title       @story.title
-   xml.link        url_for :only_path => false, :controller => 'stories'
+   xml.link        story_url(@story)
    xml.description @story.description
 
    @story.fics.each do |fic|
